@@ -11,9 +11,14 @@ app.get('/', (req,res)=> {
         title:'Test articles',
         createdAt: Date.now(),
         description : 'Test description'
+    },
+    {
+        title:'Test articles',
+        createdAt: Date.now(),
+        description : 'Test description'
     }]
 
-    res.render('index', {text: articles})
+    res.render('index', {articles: articles})
 
 
 })
