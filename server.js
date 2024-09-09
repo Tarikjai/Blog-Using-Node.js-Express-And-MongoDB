@@ -8,6 +8,7 @@ mongoose.connect("mongodb://localhost/blog"/*, {useUnifiedTopology: true} , {use
 app.set('view engine', 'ejs' )
 
 app.use('/articles', articleRouter)
+app.use(express.urlencoded({ extended: flase}))
 
 app.get('/', (req,res)=> {
     const articles =[{
