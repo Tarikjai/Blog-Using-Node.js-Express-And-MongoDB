@@ -8,16 +8,13 @@ router.get('/new', (req,res)=>{
 })
 
 router.get('/:id', async (req,res)=>{
-    const article = await article.findByID(req.params.id)
-  res.send('articles/show', {article:article})
+    const article = await Article.findById(req.params.id)
+    if(article == null)  res.redirect('/') 
+    res.render('articles/show', {article:article})
 })
 
 
-
-
-
 router.post('/', async (req,res)=>{
-
     let article = new Article({
         title: req.body.title,
         description: req.body.description,

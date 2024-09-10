@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const articleRouter = require('./routes/articles')
+const Article = require('./models/article')
 const app = express()
 
 mongoose.connect("mongodb://localhost/blog"/*, {useUnifiedTopology: true} , {useNewUrlParser: true}*/)
@@ -11,18 +12,8 @@ app.use(express.urlencoded({ extended: false}))
 
 
 
-app.get('/', (req,res)=> {
-    const articles =[{
-        title:'Test articles',
-        createdAt: new Date(),
-        description : 'Test description'
-    },
-    {
-        title:'Test articles',
-        createdAt: new Date(),
-        description : 'Test description'
-    }]
-
+app.get('/', async (req,res)=> {
+    const articles = await Article.find().sort({createdAt: 'desc'})
     res.render('articles/index', {articles: articles})
 
 
