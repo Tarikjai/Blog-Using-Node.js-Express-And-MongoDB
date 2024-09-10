@@ -4,8 +4,10 @@
     "devStart": "nodemon server.js"
   },
   "dependencies": {
+    "dompurify": "^3.1.6",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
+    "jsdom": "^25.0.0",
     "marked": "^14.1.2",
     "method-override": "^3.0.0",
     "mongoose": "^8.6.0",
