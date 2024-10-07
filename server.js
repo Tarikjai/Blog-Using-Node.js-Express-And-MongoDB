@@ -6,7 +6,7 @@ const Article  = require('./models/article')
 const methodOverride = require('method-Override')
 
 
-const PORT = 3000
+const PORT = 5001
 
 mongoose.connect('mongodb+srv://tarikjaidani:Atiminou5*@cluster0.ppcyl.mongodb.net/myTravelBlog?retryWrites=true&w=majority&appName=Cluster0')
 app.use(express.urlencoded({ extended: false}))
